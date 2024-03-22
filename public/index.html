@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        width: 100%;
+    }
+    .container{
+        width: 80%;
+        margin: auto;
+    }
+
+    .step1{
+       width: 40%;
+       margin: 0px;
+       background-color: black;
+       color: white;
+       height: auto;
+       padding:10px 10px 10px 10px;
+    }
+
+    .step2{
+       width: 40%;
+       margin: 0px;
+       background-color: black;
+       color: white;
+       height: auto;
+       padding:10px 10px 10px 10px;
+    }
+    code{
+        font-size: larger;
+        width: auto;
+        margin: 0px;
+        padding: 30px 0px 10px 0px ;
+    }
+</style>
+<body>
+ <div class="container">
+    <h1>Free Music Api Developed By Kiran Ugale</h1>
+    <h2>How to fetch api  </h2>
+
+    <h2>Endpoints</h2>
+
+    <div class="endpoint">
+        <p class="method">GET</p>
+        <a href="https://free-music-api2.vercel.app/getSongs" >/getSongs</a>
+        <p class="description">Retrieve a list of songs.</p>
+    </div>
+
+    <div class="endpoint">
+      <p class="method">POST</p>
+      <a href="https://free-music-api2.vercel.app/sendSongs" >/sendSongs</a>
+      <p class="description">post songs in API.</p>
+  </div>
+
+   
+    <h2>Parameters</h2>
+
+    <p>No parameters required for these endpoints.</p>
+
+    <h2>Response</h2>
+
+    <p>The response will be a JSON object containing the requested data.</p>
+
+
+    <!-- <div class="links">
+      <h4>GetSongs Url</h4>
+      <a href="https://free-music-api2.vercel.app/getSongs" >GetSongs</a>
+    </div> -->
+    <br/>
+    <div class="step1">
+      <code>
+        const getSong=async()=>{
+            <br/>
+            const res=await fetch("https://free-music-api2.vercel.app/getSongs",{
+                <br/>
+              method:"get",
+              <br/>
+              headers:{
+                <br/>
+                "Content-Type":"application/json"
+                <br/>
+              }
+            })
+            <br/>
+            const response=await res.json();
+            <br/>
+            if(response){
+                <br/>
+              //set response in your array 
+         
+            }
+          }
+          
+      </code>
+    </div>
+
+
+    <h2>Demo Of API</h2>
+    <img src="apidemo.png" alt="demoofapi" />
+
+    
+</div>
+</body>
+</html>
