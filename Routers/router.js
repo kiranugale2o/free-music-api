@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Songs=require("../modules/Songs.modules");
 
-
+//get songs route
 router.get("/getSongs",async(req,res)=>{
     try
     {
@@ -18,16 +18,18 @@ router.get("/getSongs",async(req,res)=>{
     }
  })
 
- 
+ //post songs route
 router.post("/sendSongs",async(req,res)=>{
     try
     {
-      const {songName,songBanner,singer,url}=req.body;
       const result=await Songs(req.body);
       await result.save();
       if(result)
       {
          res.json("success")
+      }else
+      {
+        res.json("unsuccess")
       }
     }
     catch (error)
@@ -36,5 +38,24 @@ router.post("/sendSongs",async(req,res)=>{
     }
  })
 
- 
+ //music album
+router.get("/album/:name",async(req,res)=>{
+   try {
+       const album=req.params.name;
+       const songs=await Songs.find({albumname:album})
+       if((songs.length)!==0)
+       {
+        res.json(songs)
+        console.log(songs)
+       }else{
+     
+       res.json(album+" is not Found")
+       }
+
+   } catch (error) {
+    console.log(error)
+   }
+})
+
+
  module.exports=router;
